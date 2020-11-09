@@ -1,0 +1,4 @@
+﻿1,"Simple Text Question 1","Topic Area 1","STQ","Simple Text Question 1 Response"
+2,"Simple Numeric Question 1","Topic Area 2","SNQ",5
+3,"Simple Text Question 2","Topic Area 1","STQ","Simple Text Question 2 Response"
+4,"Simple Numeric Question 2","Topic Area 3","SNQ",25

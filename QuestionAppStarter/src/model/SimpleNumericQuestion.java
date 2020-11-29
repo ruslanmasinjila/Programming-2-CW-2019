@@ -50,8 +50,19 @@ public class SimpleNumericQuestion extends Question {
     // Methods required: getters, setters
 
     @Override
-    public String toString() {
-        return  "\nQuestion Id: " + id + " - Question Text: " + questionText +            
-                " - Topic Area: " + topicArea + " - Simple Numeric Response: " + simpleNumericResponse + "\n";
+    public String toString(Character delimiter) {
+            String label = "SNQ";
+            
+                return  Integer.toString(getId()) + delimiter +
+                getQuestionText() + delimiter +
+                getTopicArea() + delimiter +
+                label + delimiter +
+                getSimpleNumericResponse()+"\n";
     }   
+
+    public int getSimpleNumericResponse() {
+        return simpleNumericResponse;
+    }
+    
+    
 }

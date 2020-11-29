@@ -110,35 +110,25 @@ abstract public class Question {
                 + " - Topic Area: " + getTopicArea() + "\n";
     }
 
-    public String toString(Character delimiter) {
-        return "\nQuestion Id: " + getId() + delimiter
-                + "Question Text: " + getQuestionText() + delimiter
-                + "Topic Area: " + getTopicArea() + "\n";
-    }
-    
+    public abstract String toString(Character delimiter);
+
     @Override
-    public int hashCode()
-    {
-        
-        return  getId()*31 +
-                getQuestionText().hashCode()*31 +
-                getTopicArea().hashCode()*31;
+    public int hashCode() {
+
+        return getId() * 31
+                + getQuestionText().hashCode() * 31
+                + getTopicArea().hashCode() * 31;
     }
-    
-    public boolean equals(Object o)
-    {
-        if(o instanceof Question)
-        {
-          Question q = (Question)o;
-            
-            return q.getId()==this.getId()&&
-                   q.getQuestionText()==this.getQuestionText()&&
-                   q.getTopicArea()==this.getTopicArea();
-            
-        }
-        
-        else
-        {
+
+    public boolean equals(Object o) {
+        if (o instanceof Question) {
+            Question q = (Question) o;
+
+            return q.getId() == this.getId()
+                    && q.getQuestionText() == this.getQuestionText()
+                    && q.getTopicArea() == this.getTopicArea();
+
+        } else {
             return false;
         }
     }

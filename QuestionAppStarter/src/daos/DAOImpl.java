@@ -6,8 +6,10 @@
 package daos;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +63,13 @@ public class DAOImpl implements DAOInterface {
     }
 
     public void store(String filename, Repository repository) {
+
+        try ( PrintWriter output = new PrintWriter(filename)) {
+            output.print(repository.toString(DELIMITER));
+            output.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

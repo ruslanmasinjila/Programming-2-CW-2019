@@ -10,11 +10,11 @@ package model;
  * @author mga
  */
 public class SimpleTextQuestion extends Question {
-    
+
     private String simpleTextResponse;
-    
-    static final char EOLN='\n';       
-    static final String QUOTE="\""; 
+
+    static final char EOLN = '\n';
+    static final String QUOTE = "\"";
 
     /**
      *
@@ -46,12 +46,20 @@ public class SimpleTextQuestion extends Question {
         super(id, questionText, topicArea);
         this.simpleTextResponse = simpleTextResponse;
     }
-    
-    // Methods required: getters, setters
 
+    // Methods required: getters, setters
     @Override
-    public String toString() {
-        return  "\nQuestion Id: " + id + " - Question Text: " + questionText +            
-                " - Topic Area: " + topicArea + " - Simple Text Response: " + simpleTextResponse + "\n";
-    }   
+    public String toString(Character delimiter) {
+        String label = "STQ";
+        return  Integer.toString(getId()) + delimiter
+                + getQuestionText() + delimiter
+                + getTopicArea() + delimiter
+                + label + delimiter
+                + getSimpleTextResponse() +"\n";
+    }
+
+    public String getSimpleTextResponse() {
+        return simpleTextResponse;
+    }
+
 }

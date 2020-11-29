@@ -1,5 +1,6 @@
 package repositories;
 
+import daos.DAOImpl;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 import model.Question;
@@ -18,8 +19,8 @@ public class Repository implements RepositoryInterface {
     
     public Repository(String filename) {
         this();
-        //@TODO
-        // Create dao and execute load  
+        DAOImpl dao = new DAOImpl();
+        this.items = dao.load(filename).getItems();  
     }
     
     @Override
@@ -55,10 +56,19 @@ public class Repository implements RepositoryInterface {
     @Override
     public String toString() {
         return "\nItems: " + this.items;
-    }    
+    }   
+    
+    public String toString(char delimiter) {
+        String output = "";
+        for (Question item: this.items) {
+            output += item.toString(delimiter);
+        }
+        return output;
+    }
     
     @Override
     public void store(String filename) {       
-        // create dao and execute store    
+        DAOImpl dao = new DAOImpl();
+        dao.store(filename, this);    
     }        
 }
